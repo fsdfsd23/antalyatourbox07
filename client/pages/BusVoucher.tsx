@@ -40,7 +40,7 @@ export default function BusVoucher() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div className="space-y-3">
-          <img src="/public/placeholder.svg" alt="Otobüs" className="w-full h-40 object-cover rounded-lg" />
+          <img src="/placeholder.svg" alt="Otobüs" className="w-full h-40 object-cover rounded-lg" />
           <div className="text-2xl font-bold">{trip.company}</div>
           <div className="text-lg">Otobüs Tipi: {trip.busType}</div>
           <div className="text-lg">Koltuklar: {selected.map((s) => `${s.no}-${s.gender}`).join(", ")}</div>
