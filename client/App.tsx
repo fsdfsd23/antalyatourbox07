@@ -23,6 +23,9 @@ import CarRentalConfirmation from "./pages/CarRentalConfirmation";
 import { YachtRentalProvider } from "@/context/YachtRentalContext";
 import YachtList from "./pages/YachtList";
 import YachtDetail from "./pages/YachtDetail";
+import BusResults from "./pages/BusResults";
+import BusCheckout from "./pages/BusCheckout";
+import BusVoucher from "./pages/BusVoucher";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +64,9 @@ const App = () => (
                 />
                 <Route path="/yat-kiralama" element={<YachtList />} />
                 <Route path="/yat-kiralama/:id" element={<YachtDetail />} />
+                <Route path="/otobus" element={<BusResults />} />
+                <Route path="/otobus/checkout" element={<BusCheckout />} />
+                <Route path="/otobus/voucher" element={<BusVoucher />} />
               </Route>
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
