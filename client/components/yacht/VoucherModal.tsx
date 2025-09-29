@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckCircle } from "lucide-react";
 import ReservationSummary from "./ReservationSummary";
 import { useYachtRental } from "@/context/YachtRentalContext";
@@ -17,6 +17,9 @@ export default function VoucherModal({ open, onOpenChange }: { open: boolean; on
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-5xl">
+        <DialogHeader>
+          <DialogTitle className="sr-only">Rezervasyon Özeti</DialogTitle>
+        </DialogHeader>
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-3 bg-green-600 text-white px-4 py-2 rounded-lg">
             <CheckCircle className="w-7 h-7" />
