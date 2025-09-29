@@ -29,7 +29,7 @@ export default function CardPaymentModal({ open, onOpenChange, onPaid, guest }: 
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-6">
           <div className="space-y-4">
-            <div className="h-40 perspective-1000">
+            <div className="h-40" style={{ perspective: 1000 }}>
               <motion.div
                 className="relative w-full h-full rounded-xl text-white"
                 animate={{ rotateY: focusBack ? 180 : 0 }}
