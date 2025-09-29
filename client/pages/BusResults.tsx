@@ -33,11 +33,18 @@ export default function BusResults() {
     <div className="container max-w-6xl container-px py-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl sm:text-2xl font-extrabold">Otobüs Seferleri</h1>
-        <div className="text-sm text-slate-600">{from} → {to} • {date}</div>
+        <div className="text-sm text-slate-600">
+          {from} → {to} • {date}
+        </div>
       </div>
       <div className="mt-4 grid gap-3">
         {trips.map((t, i) => (
-          <BusCard key={t.id} trip={t} onInspect={() => onInspect(i)} onSelect={() => onSelect(i)} />
+          <BusCard
+            key={t.id}
+            trip={t}
+            onInspect={() => onInspect(i)}
+            onSelect={() => onSelect(i)}
+          />
         ))}
       </div>
 
@@ -50,7 +57,9 @@ export default function BusResults() {
           const trip = tripIdx !== null ? trips[tripIdx] : null;
           if (!trip) return;
           const seats = sel.map((s) => `${s.no}-${s.gender}`).join(",");
-          navigate(`/otobus/checkout?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&date=${date}&trip=${trip.id}&seats=${seats}`);
+          navigate(
+            `/otobus/checkout?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&date=${date}&trip=${trip.id}&seats=${seats}`,
+          );
         }}
       />
     </div>

@@ -24,7 +24,13 @@ export default function ReservationModal({
   const [onlineFormOpen, setOnlineFormOpen] = useState(false);
   const [cardOpen, setCardOpen] = useState(false);
   const [voucherOpen, setVoucherOpen] = useState(false);
-  const [guest, setGuest] = useState<null | { fullName: string; email: string; phone: string; notes?: string; time?: string }>(null);
+  const [guest, setGuest] = useState<null | {
+    fullName: string;
+    email: string;
+    phone: string;
+    notes?: string;
+    time?: string;
+  }>(null);
 
   const startFlow = () => {
     onOpenChange(false);
@@ -32,13 +38,25 @@ export default function ReservationModal({
     else setOnlineFormOpen(true);
   };
 
-  const handlePrebookContinue = (g: { fullName: string; email: string; phone: string; notes?: string; time?: string }) => {
+  const handlePrebookContinue = (g: {
+    fullName: string;
+    email: string;
+    phone: string;
+    notes?: string;
+    time?: string;
+  }) => {
     setGuest(g);
     setPreFormOpen(false);
     setVoucherOpen(true);
   };
 
-  const handleOnlineContinue = (g: { fullName: string; email: string; phone: string; notes?: string; time?: string }) => {
+  const handleOnlineContinue = (g: {
+    fullName: string;
+    email: string;
+    phone: string;
+    notes?: string;
+    time?: string;
+  }) => {
     setGuest(g);
     setOnlineFormOpen(false);
     setCardOpen(true);
@@ -56,7 +74,11 @@ export default function ReservationModal({
           <DialogHeader>
             <DialogTitle>Rezervasyon Tipi</DialogTitle>
           </DialogHeader>
-          <RadioGroup value={type} onValueChange={setType} className="space-y-3">
+          <RadioGroup
+            value={type}
+            onValueChange={setType}
+            className="space-y-3"
+          >
             <label className="flex items-center gap-2 border rounded-md p-3">
               <RadioGroupItem value="pre-book" />
               <div>
@@ -82,9 +104,22 @@ export default function ReservationModal({
         </DialogContent>
       </Dialog>
 
-      <PrebookFormModal open={preFormOpen} onOpenChange={setPreFormOpen} onContinue={handlePrebookContinue} />
-      <OnlinePayFormModal open={onlineFormOpen} onOpenChange={setOnlineFormOpen} onContinue={handleOnlineContinue} />
-      <CardPaymentModal open={cardOpen} onOpenChange={setCardOpen} onPaid={() => handlePaid()} guest={guest} />
+      <PrebookFormModal
+        open={preFormOpen}
+        onOpenChange={setPreFormOpen}
+        onContinue={handlePrebookContinue}
+      />
+      <OnlinePayFormModal
+        open={onlineFormOpen}
+        onOpenChange={setOnlineFormOpen}
+        onContinue={handleOnlineContinue}
+      />
+      <CardPaymentModal
+        open={cardOpen}
+        onOpenChange={setCardOpen}
+        onPaid={() => handlePaid()}
+        guest={guest}
+      />
       <VoucherModal open={voucherOpen} onOpenChange={setVoucherOpen} />
     </>
   );

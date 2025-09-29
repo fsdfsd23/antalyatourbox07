@@ -31,14 +31,14 @@ const COMPANIES = [
 // City centers (rough)
 export const CITY_COORDS: Record<string, { lat: number; lng: number }> = {
   Istanbul: { lat: 41.015137, lng: 28.97953 },
-  "İstanbul": { lat: 41.015137, lng: 28.97953 },
+  İstanbul: { lat: 41.015137, lng: 28.97953 },
   Izmir: { lat: 38.423733, lng: 27.142826 },
-  "İzmir": { lat: 38.423733, lng: 27.142826 },
+  İzmir: { lat: 38.423733, lng: 27.142826 },
   Ankara: { lat: 39.92077, lng: 32.85411 },
   Antalya: { lat: 36.89689, lng: 30.71332 },
   Bursa: { lat: 40.195, lng: 29.06 },
   Eskisehir: { lat: 39.7767, lng: 30.5206 },
-  "Eskişehir": { lat: 39.7767, lng: 30.5206 },
+  Eskişehir: { lat: 39.7767, lng: 30.5206 },
 };
 
 function formatTime(h: number, m: number) {
@@ -61,7 +61,11 @@ function randomSeats(total: number): Seat[] {
   return seats;
 }
 
-export function generateTrips(from: string, to: string, date: string): BusTrip[] {
+export function generateTrips(
+  from: string,
+  to: string,
+  date: string,
+): BusTrip[] {
   const clean = (s: string) => s.trim() || "İstanbul";
   from = clean(from);
   to = clean(to);
@@ -99,7 +103,9 @@ export function seatsSummary(seats: Seat[]) {
   return { total, empty, taken: total - empty };
 }
 
-export function parseSelected(seatsParam: string | null): Array<{ no: number; gender: Gender }>{
+export function parseSelected(
+  seatsParam: string | null,
+): Array<{ no: number; gender: Gender }> {
   if (!seatsParam) return [];
   return seatsParam.split(",").map((p) => {
     const [no, g] = p.split("-");
