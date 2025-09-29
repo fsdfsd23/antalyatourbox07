@@ -103,7 +103,7 @@ export const YACHTS: Yacht[] = [
     piers: ["Lara Marina"],
   },
   {
-    id: "my-antalya-2",
+    id: "my-antalya-3",
     name: "M/Y Lara",
     type: "Yat",
     capacity: 10,
